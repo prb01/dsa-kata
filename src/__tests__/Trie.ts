@@ -13,7 +13,16 @@ test("Trie", function () {
 
   expect(trie.find("fo").sort()).toEqual(["foo", "foolish"]);
 
-  trie.delete("bar")
+  trie.delete("bar");
 
-  expect(trie.find("b")).toEqual([])
+  expect(trie.find("b")).toEqual([]);
+
+  trie.insert("apple");
+  trie.insert("apples");
+
+  expect(trie.find("app").sort()).toEqual(["apple", "apples"]);
+  
+  trie.delete("apple")
+
+  expect(trie.find("app").sort()).toEqual(["apples"]);
 });
